@@ -10,6 +10,7 @@ import Factory from './components/Factory';
 import MyTokens from './components/MyTokens';
 import NFTFactory from './components/NFTFactory';
 import MyNFTs from './components/MyNFTs';
+import MyGPT from './components/MyGPT';
 import Logo from './assets/eth.svg';
 
 function App() {
@@ -140,6 +141,7 @@ function App() {
         <button className='disconnect' onClick={disconnect}>{name}</button>
         </nav>
         <div className={isMenuOpen ? "nav open" : "nav"}>
+        <Link to='./myGpt' onClick={closeMenu}>My GPT</Link>
         <Link to='./factory' onClick={closeMenu}>Token Factory</Link>
         <Link to='./myTokens' onClick={closeMenu}>My Tokens</Link>
         <Link to='/nftFactory' onClick={closeMenu}>NFT Factory</Link>
@@ -159,6 +161,7 @@ function App() {
               <Route path='/nftFactory' element={<NFTFactory />} />
               <Route path='/myNfts' element={<MyNFTs />} />
               <Route path='/myTokens' element={<MyTokens />} />
+              <Route path='/myGpt' element={<MyGPT />} />
             </Routes>
           </main>
         )}
