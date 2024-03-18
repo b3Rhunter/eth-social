@@ -112,6 +112,7 @@ body {
 .logo {
   width: 50%;
   min-width: 375px;
+  max-height: 90vh;
   opacity: 0.05;
 }
 
