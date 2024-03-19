@@ -41,7 +41,8 @@ a:hover {
   color: #535bf2;
 }
 
-button {
+button,
+.nav-link {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -53,16 +54,21 @@ button {
   cursor: pointer;
   transition: 0.25s;
 }
-button:hover {
+button:hover,
+.nav-link:hover {
   border-color: #646cff;
+  color: white;
   transform: translateY(-4px);
 }
 button:focus,
-button:focus-visible {
+button:focus-visible,
+.nav-link:focus,
+.nav-link:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-button:active {
+button:active,
+.nav-link:active {
   transform: translateY(4px);
 }
 
@@ -216,7 +222,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1em;
+  gap: 10px;
 }
 
 .my-tokens {
@@ -265,12 +271,48 @@ main {
 }
 
 .ui-btn {
+  text-align: center;
   width: 200px;
 }
 
-.home h2 {
+.social h2 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.225);
   margin-bottom: 1em;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1em;
+  width: 90%;
+  height: 100%;
+}
+
+.friends-list,
+.all-users {
+  flex-grow: 1;
+  height: calc(100% - 70px);
+  overflow-y: auto;
+}
+
+.messages-btn {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+.back-button {
+  margin-bottom: 20px;
+}
+
+.messages-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
 }
 
 .my-gpt {
@@ -286,7 +328,7 @@ main {
 .chat-history {
   flex-grow: 1;
   width: 100%;
-  overflow: auto;
+  overflow-y: auto;
 }
 
 .chat-input {
@@ -300,6 +342,7 @@ main {
 }
 
 .chat-input textarea {
+  max-height: 45px;
   background-color: transparent;
   flex-grow: 1;
   margin-right: 10px;
@@ -329,6 +372,69 @@ main {
 
 .chat-history p {
   cursor: text;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #ebebeb;
+  color: #1a1a1a;
+  word-wrap: break-word;
+}
+
+.assistant {
+  align-self: flex-start;
+  background-color: #ffffff2f;
+  color: rgba(255, 255, 255, 0.781);
+  word-wrap: break-word;
+}
+
+.message p {
+  font-size: 16px; 
+  line-height: 1.6; 
+  max-width: 60ch; 
+  text-align: left; 
+  margin-bottom: 1em; 
+  white-space: pre-wrap; 
+}
+
+.messages-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+}
+
+.thinking {
+  color: #aaa;
+}
+
+.ellipsis span {
+  opacity: 0;
+  animation: dotBlink 1.2s infinite; 
+}
+
+.ellipsis span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.ellipsis span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.ellipsis span:nth-child(3) {
+  animation-delay: 0.8s; 
+}
+
+@keyframes dotBlink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 ::-webkit-scrollbar {
@@ -405,6 +511,18 @@ main {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s linear;
+}
+
+pre {
+  background-color: #171817; 
+  color: #00ff22;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
 }
 
 @media (max-width: 768px) {

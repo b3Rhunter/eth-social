@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ethers } from "ethers";
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { Link } from 'react-router-dom';
 import ABI from '../ABIs/ERC721_ABI.json';
 
 const contractAddress = "0x655cf610e30ADA5AFFC4da0222Ff920A52Aa7595";
@@ -53,6 +54,7 @@ const NFTFactory = () => {
                 <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="NFT Description" />
                 <input type="file" onChange={onFileChange} />
                 <button className='ui-btn' onClick={createNFT}>Create NFT</button>
+                <Link to='/myNfts' className='nav-link ui-btn'>My NFTs</Link>
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ethers } from 'ethers';
+import { Link } from 'react-router-dom';
 import Factory_ABI from '../ABIs/Factory_ABI.json';
 
 const FactoryContractAddress = '0xb7e24187114EeF8A1a46aB177D13989f7A351690';
@@ -45,6 +46,7 @@ const Factory = () => {
             <input type="text" value={preMineAmount} onChange={(e) => setPreMineAmount(e.target.value)} placeholder="Pre-Mine Amount" />
             <input type="text" value={pricePerToken} onChange={(e) => setPricePerToken(e.target.value)} placeholder="Price Per Token (in ETH)" />
             <button className='ui-btn' onClick={createToken}>Create Token</button>
+            <Link to='/myTokens' className='nav-link ui-btn'>My Tokens</Link>
         </div>
     );
 };
